@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Optica Geo Vision</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Krub:400,700" rel="stylesheet">
+   <style>
+    @font-face {
+      font-family: Copperplate;
+      src: url(Font/Copperplate.ttf); 
+      font-weight: bold;
+      font-style: normal;
+  }
+</style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class=" nav-bg">
+        <nav class="navegacion contenedor">
+            <a href="#">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#staff">Staff Médico</a>
+            <a href="#contacto">Contactos</a>
+        </nav>
+    </div>
+    
+
+    <div class="hero">
+        <div class="contenido-hero">
+            <h2> <img src="img/logo01.png"> </h2>
+            <a class="boton" href="#nuestrosproductos">Productos</a>
+        </div>
+    </div>
+
+    <div class="contenedor sombra" id="nuestrosproductos">
+        <h2>Nuestros Productos</h2>
+        <main class="servicios">
+                <div id="servicio" class="servicio">
+                    <h3><a href="links/Niños.html" target="_blank">Niños</a></h3>
+                    <div class="iconos">
+                        <img src="img/niños.svg" alt="niños">
+                    </div>
+                    <p>Ut congue ligula sapien, ac aliquet erat viverra a. Nulla rhoncus hendrerit fringilla. Mauris tempus sagittis libero, eget finibus sem aliquet eget.</p>
+                </div>
+                <div class="servicio">
+                    <h3><a href="links/Damas.html" target="_blank">Damas</a></h3>
+                    <div class="iconos">
+
+                        <!-- https://tablericons.com/ -->
+                        <img src="img/dama.svg" alt="dama">
+                    </div>
+                    <p>Ut congue ligula sapien, ac aliquet erat viverra a. Nulla rhoncus hendrerit fringilla. Mauris tempus sagittis libero, eget finibus sem aliquet eget.</p>
+                </div>
+                <div class="servicio">
+                    <h3><a href="links/Caballeros.html" target="_blank">Caballeros</a></h3>
+                    <div class="iconos">
+                        <img src="img/caballero.svg" alt="caballero">
+                    </div>
+                    <p>Ut congue ligula sapien, ac aliquet erat viverra a. Nulla rhoncus hendrerit fringilla. Mauris tempus sagittis libero, eget finibus sem aliquet eget.</p>
+                </div>
+        </main>
+        <div id="nosotros" class="nosotros">
+             <h2> Sobre Nosotros </h2>
+             <div class="quienes">
+                <img src="img/somos.svg" alt="Imagen 1">
+                <img src="img/mision.svg" alt="Imagen 2">
+                <img src="img/vision.svg" alt="Imagen 3">
+            </div>
+                <h2>Staff </h2>
+            <div id="staff" class="staff">
+                <img src="img/staff.svg" alt="staff">
+            </div>
+        </div>
+        <div id="contacto" class="contacto">
+            <h2>Contacto</h2>
+            <form class="formulario" action="https://formsubmit.co/nayeli28oliva@gmail.com" method="POST">
+                <legend>Contactános llenando todos los campos</legend>
+
+                <div class="contenedor-campos">
+                    <div class="campo">
+                        <label>Nombre</label>
+
+                        <input type="text" name="name" placeholder="Nombre" required>
+                    </div>
+                    <div class="campo">
+                        <label>Teléfono</label>
+
+                        <input type="tel" name="phone" placeholder="Teléfono">
+                    </div>
+                    <div class="campo w-100">
+                        <label>Correo</label>
+
+                        <input type="mail" name="mail" placeholder="Mail">
+                    </div>
+                    <div class="campo w-100">
+                        <label>Mensaje:</label>
+
+                        <textarea name="message"></textarea>
+                    </div>
+                </div><!--.contenedor-campos-->
+                <div class="enviar">
+                    <input class="boton" type="submit" value="Enviar">
+                </div>
+                <input type="hidden" name="_next" valvue="http://127.0.0.1:5500/">
+                <input type="hidden" name="_captcha" valvue="false">
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Todos los derechos reservados. Israel Crisologo</p>
+    </footer>
+
+
+    
+</body>
+</html>
