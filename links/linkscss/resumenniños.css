@@ -1,0 +1,73 @@
+/* Estilos para el resumen de compra */
+body {
+    background-color: #0097A7;
+    color:#000 ; /* Cambia el color del texto a blanco */
+}
+#resumen {
+    
+    margin-top: 50px;
+    
+    
+}
+ h2 {
+    text-align: center; /* Centrar horizontalmente */
+    margin-top: 50px; /* Espacio superior */
+    display: block; /* Convertir en elemento de bloque */
+    margin-left: auto; /* Margen izquierdo automático */
+    margin-right: auto; /* Margen derecho automático */
+}
+
+#resumen table {
+    width: 100%;
+    border-collapse: collapse; /* Para fusionar los bordes de las celdas */
+}
+
+#resumen th,
+#resumen td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#resumen th {
+    background-color: #82C427;
+}
+
+/* Estilos para el formulario de datos del comprador */
+#formulario-comprador {
+    margin-top: 30px;
+}
+
+#formulario-comprador label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#formulario-comprador input[type="text"],
+#formulario-comprador input[type="email"],
+#formulario-comprador input[type="tel"] {
+    width: calc(100% - 24px); /* Ajuste para tener en cuenta el relleno */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#formulario-comprador input[type="text"]:read-only {
+    background-color: #f2f2f2; /* Estilo para campos de solo lectura */
+}
+
+#formulario-comprador button[type="submit"] {
+    background-color: #82C427;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#formulario-comprador button[type="submit"]:hover {
+    background-color: #00828e;
+}
