@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        @font-face {
+          font-family: Copperplate;
+          src: url(linkscss/Font-1/Copperplate.ttf); 
+          font-weight: bold;
+          font-style: normal;
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="linkscss/resumendamas.css">
+</head>
+<body>
+    <div class="titulo2">
+        <h2>Resumen de la Compra</h2>
+    </div>
+
+    <div id="resumen">
+        <table>
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-resumen">
+                <!-- Aquí se llenará dinámicamente con JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <div id="formulario-container"></div>
+        <h3>Datos del Comprador</h3>
+        <form id="formulario-comprador" action="https://formsubmit.co/nayeli28oliva@gmail.com" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="telefono">Número de Contacto:</label>
+            <input type="tel" id="telefono" name="telefono" required><br><br>
+        
+            <label for="direccion">Dirección de Envío:</label>
+            <input type="text" id="direccion" name="direccion" required><br><br>
+
+            <input type="text" id="nombres-productos" name="nombres-productos-Damas" readonly><br><br>
+
+            <label for="total">Total:</label>
+            <input type="text" id="total" name="total" readonly><br><br>
+
+            <button type="submit">Confirmar Compra</button>
+            <input type="hidden" name="_next" valvue="http://127.0.0.1:5500">
+                    <input type="hidden" name="_captcha" valvue="false">
+        </form>
+    </div>
+    <script src="scripDamas.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar si hay elementos en el carrito almacenados en el localStorage
+            if (localStorage.getItem('carrito')) {
+                const carrito = JSON.parse(localStorage.getItem('carrito'));
+                const tablaResumen = document.getElementById('tabla-resumen');
+                let totalCompra = 0; // Inicializar el total de la compra
+    
+                // Iterar sobre los elementos del carrito y agregar filas a la tabla de resumen
+                carrito.forEach(function(elemento) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>
+                            <img src="${elemento.imagen}" width=100 >
+                        </td>
+                        <td>
+                            ${elemento.titulo}
+                        </td>
+                        <td>
+                            ${elemento.precio}
+                        </td>
+                    `;
+                    tablaResumen.appendChild(row);
+    
+                    // Sumar el precio del elemento al total de la compra
+                    totalCompra += parseFloat(elemento.precio.replace('$', ''));
+                });
+                
+                
+                // Mostrar el total de la compra en el campo correspondiente
+                document.getElementById('total').value = `$${totalCompra.toFixed(2)}`;
+            }
+        });
+        // Función para actualizar el campo oculto de nombres de productos
+        function actualizarNombresProductos() {
+            let nombres = [];
+            const filas = document.querySelectorAll('#lista-carrito tbody tr');
+            filas.forEach(function(fila) {
+                const nombreProducto = fila.querySelector('td:nth-child(2)').textContent.trim();
+                nombres.push(nombreProducto);
+            });
+            document.getElementById('nombres-productos').value = nombres.join(', ');
+        }
+
+        // Configurar los nombres de los productos al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar si hay elementos en el carrito almacenados en el localStorage
+            if (localStorage.getItem('carrito')) {
+                const carrito = JSON.parse(localStorage.getItem('carrito'));
+                const nombresProductosInput = document.getElementById('nombres-productos');
+                
+                // Obtener los nombres de los productos del carrito
+                const nombresProductos = carrito.map(elemento => elemento.titulo).join(', ');
+                
+                // Configurar el valor del campo de entrada como los nombres de los productos
+                nombresProductosInput.value = nombresProductos;
+                
+                // Hacer que el campo de entrada sea de solo lectura
+                nombresProductosInput.setAttribute('readonly', 'readonly');
+                // Desactivar la posibilidad de enfocar el campo de entrada
+                nombresProductosInput.tabIndex = -1;
+            }
+        });
+        window.addEventListener('beforeunload', function(event) {
+            // Limpiar el localStorage al cerrar la página o confirmar la compra
+            localStorage.removeItem('carrito');
+        });
+    </script>
+    
+</body>
+</html>
